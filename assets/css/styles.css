@@ -379,6 +379,7 @@ footer {
 }
 
 .action-link {
+  position: relative;
   transition: all 0.2s ease-out;
 }
 .action-link__icon {
@@ -389,6 +390,27 @@ footer {
   height: 32px;
   color: var(--main-color);
   transition: all 0.2s ease-out;
+}
+.action-link__count {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 14px;
+  height: 14px;
+  padding: 3px 2px;
+  color: #fff;
+  font-size: 8px;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -0.08em;
+  border-radius: 100px;
+  background: var(--accent-color);
+}
+.action-link__count:empty {
+  display: none;
 }
 .action-link--fav {
   fill: none;

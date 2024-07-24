@@ -4,6 +4,7 @@ window.addEventListener('load', function(){
 	const body = document.querySelector('body')
 
 
+
 	// POPULAR SLIDER INIT //
 	const swiper = new Swiper('.swiper', {
 		slidesPerView: 'auto',
@@ -39,6 +40,30 @@ window.addEventListener('load', function(){
 		})
 	})
 	// END BURGER MENU OPEN //
+
+
+
+	// ADD TO FAVORITES //
+	const addToFavorites = document.querySelectorAll('.js-addto-fav')
+	const headerFavCount = document.querySelector('.js-fav-count')
+	localStorage.setItem('fav-count', 0);
+
+	addToFavorites.forEach( btn => {
+		btn.addEventListener('click', function(){
+			let favCount = +localStorage.getItem('fav-count')
+
+			if(!btn.classList.contains('active')){
+				btn.classList.add('active')
+				localStorage.setItem('fav-count', favCount + 1);
+			} else {
+				btn.classList.remove('active')
+				localStorage.setItem('fav-count', favCount - 1);
+			}
+
+			headerFavCount.innerText = `${localStorage.getItem('fav-count')}`
+		})
+	})
+	// END ADD TO FAVORITES //
 
 	
 
