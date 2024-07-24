@@ -1,0 +1,50 @@
+@media (max-width: 1699px) and (min-width: 0px) 
+    
+@media (max-width: 1399px) and (min-width: 0px)
+
+@media (max-width: 1199px) and (min-width: 0px) 
+    .page
+        &__grid
+            grid-template-columns: 230px 1fr
+        &__nav 
+            padding: 60px 20px 20px 40px
+
+@media (max-width: 991px) and (min-width: 0px) 
+
+@media (max-width: 767px) and (min-width: 0px) 
+    .header
+        &__row
+            padding: 0 16px
+        &__phone span
+            display: none
+        &__actions
+            gap: 0
+        &__user-links
+            margin-right: 16px
+    .page 
+        &__grid
+            display: flex
+            flex-direction: column
+        &__nav 
+            flex-direction: row
+            padding: 8px 16px
+            gap: 16px
+            li:last-child
+                text-align: right
+                flex-grow: 1
+    .user-profile
+        &__content
+            gap: 32px
+            border-bottom: none
+        &__title
+            border-bottom: none
+        &__form__fieldset
+            gap: 16px
+            padding-bottom: 32px
+            .page__heading
+                margin-bottom: 16px
+        &__form__btn
+            padding-top: 32px
+    .form__field
+        gap: 8px
+@media (max-width: 576px) and (min-width: 0px) 

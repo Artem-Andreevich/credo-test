@@ -1,0 +1,20 @@
+include mixins.pug
+header.header
+    .header__row
+        a.header__logo(href="#")
+            +svg('logo', 80, 14)(class="icon-fill") 
+        .header__actions
+            a.header__phone.action-link(href="tel: +78005553535")
+                .action-link__icon
+                    +svg('phone', 14, 14)(class="icon") 
+                span 8 (800) 555-35-35
+            .header__user-links
+                a.action-link.action-link--fav(href="#")
+                    .action-link__icon
+                        +svg('fav', 16, 15)(class="icon") 
+                a.action-link.action-link--auth(href="#")
+                    .action-link__icon
+                        +svg('profile', 12, 14)(class="icon-fill")
+            button.burger
+                span 
+                span

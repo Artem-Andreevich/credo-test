@@ -1,0 +1,140 @@
+extends ../layout/head.pug 
+block content
+    main.page.user-profile
+        .page__grid
+            ul.page__nav
+                li: a.page__nav-link.active(href="#") Профиль
+                li: a.page__nav-link(href="#") Мои заказы
+                li: a.page__nav-link(href="#") Выход
+            .user-profile__content
+                h1.page__title.user-profile__title Профиль
+                form.form.user-profile__form(action="") 
+                    fieldset.user-profile__form__fieldset
+                        h3.page__heading Данные профиля
+                        .form__field
+                            label(for="user-profile__form__name") ФИО 
+                            input#user-profile__form__name(type="text" placeholder="ФИО" value="Алексеева Ульяна Евгеньевна")
+                        .form__field
+                            label(for="user-profile__form__mail") Почта
+                            input#user-profile__form__mail(type="email" placeholder="Почта" value="pochta07@mail.ru") 
+                        .form__field
+                            label(for="user-profile__form__phone") Телефон
+                            input#user-profile__form__phone(type="text" placeholder="Телефон" value="+7 (999) 999-99-99") 
+                    .user-profile__form__btn
+                        button.btn.btn--main Сохранить изменения
+
+        .popular-items 
+            h2.page__subtitle.popular-items__title 
+                span Тренды
+                span сезона
+            .popular-items__slider
+                .swiper
+                    .swiper-wrapper 
+                        .swiper-slide
+                            .catalog-item.catalog-item--brown
+                                .catalog-item__actions
+                                    .catalog-item__label
+                                        span Sale
+                                    button.catalog-item__fav
+                                        +svg('addto-fav', 21, 18)(class="icon-fill") 
+                                .catalog-item__pic
+                                    img(src="images/prod1.png", alt="")
+                                .catalog-item__body
+                                    .catalog-item__title Brown to Blonde
+                                    .catalog-item__descr Пигмент для бровей
+                                    .catalog-item__descr 12 ml.
+                                    .catalog-item__price 
+                                        span 1 500 ₽
+                                        s 3 000 ₽
+                                a.catalog-item__link(href="#")
+
+                        .swiper-slide
+                            .catalog-item.catalog-item--orange
+                                .catalog-item__actions
+                                    .catalog-item__label
+                                        span Акция! 1+1=3
+                                    button.catalog-item__fav.active
+                                        +svg('addto-fav', 21, 18)(class="icon-fill") 
+                                .catalog-item__pic
+                                    img(src="images/prod1.png", alt="")
+                                .catalog-item__body
+                                    .catalog-item__title Brown to Blonde
+                                    .catalog-item__descr Пигмент для бровей
+                                    .catalog-item__descr 12 ml.
+                                    .catalog-item__price 
+                                        span 1 500 ₽
+                                        s 3 000 ₽
+                                a.catalog-item__link(href="#")
+                        .swiper-slide 
+                            .catalog-item.catalog-item--red
+                                .catalog-item__actions
+                                    .catalog-item__label
+                                        span Sale
+                                    button.catalog-item__fav
+                                        +svg('addto-fav', 21, 18)(class="icon-fill") 
+                                .catalog-item__pic
+                                    img(src="images/prod1.png", alt="")
+                                .catalog-item__body
+                                    .catalog-item__title Brown to Blonde
+                                    .catalog-item__descr Пигмент для бровей
+                                    .catalog-item__descr 12 ml.
+                                    .catalog-item__price 
+                                        span 1 500 ₽
+                                        s 3 000 ₽
+                                a.catalog-item__link(href="#")
+                        .swiper-slide
+                            .catalog-item.catalog-item--brown
+                                .catalog-item__actions
+                                    .catalog-item__label
+                                        span Бесплатная
+                                    button.catalog-item__fav
+                                        +svg('addto-fav', 21, 18)(class="icon-fill") 
+                                .catalog-item__pic
+                                    img(src="images/prod1.png", alt="")
+                                .catalog-item__body
+                                    .catalog-item__title Brown to Blonde
+                                    .catalog-item__descr Пигмент для бровей
+                                    .catalog-item__descr 12 ml.
+                                    .catalog-item__price 
+                                        span 1 500 ₽
+                                        s 3 000 ₽
+                                a.catalog-item__link(href="#")
+
+                        .swiper-slide
+                            .catalog-item.catalog-item--orange
+                                .catalog-item__actions
+                                    .catalog-item__label
+                                        span Sale
+                                    button.catalog-item__fav
+                                        +svg('addto-fav', 21, 18)(class="icon-fill") 
+                                .catalog-item__pic
+                                    img(src="images/prod1.png", alt="")
+                                .catalog-item__body
+                                    .catalog-item__title Brown to Blonde
+                                    .catalog-item__descr Пигмент для бровей
+                                    .catalog-item__descr 12 ml.
+                                    .catalog-item__price 
+                                        span 1 500 ₽
+                                        s 3 000 ₽
+                                a.catalog-item__link(href="#")
+                        .swiper-slide 
+                            .catalog-item.catalog-item--red
+                                .catalog-item__actions
+                                    .catalog-item__label
+                                        span Sale
+                                    button.catalog-item__fav
+                                        +svg('addto-fav', 21, 18)(class="icon-fill") 
+                                .catalog-item__pic
+                                    img(src="images/prod1.png", alt="")
+                                .catalog-item__body
+                                    .catalog-item__title Brown to Blonde
+                                    .catalog-item__descr Пигмент для бровей
+                                    .catalog-item__descr 12 ml.
+                                    .catalog-item__price 
+                                        span 1 500 ₽
+                                        s 3 000 ₽
+                                a.catalog-item__link(href="#")
+
+            a.goto-link(href="#")
+                span Перейти в каталог
+                +svg('goto-icon', 16)(class="icon")
