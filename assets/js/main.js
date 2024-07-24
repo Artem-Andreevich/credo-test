@@ -1,5 +1,10 @@
 window.addEventListener('load', function(){
 
+	// GLOBAL ENV //
+	const body = document.querySelector('body')
+
+
+	// POPULAR SLIDER INIT //
 	const swiper = new Swiper('.swiper', {
 		slidesPerView: 'auto',
 		spaceBetween: 8,
@@ -13,8 +18,11 @@ window.addEventListener('load', function(){
 			  },
 		  },
 	});
+	// END POPULAR SLIDER INIT //
 
-	const body = document.querySelector('body')
+
+
+	// BURGER MENU OPEN //
 	const burgerButton = document.querySelector('.js-burger')
 	const burgerMenu = document.querySelector('.js-burger-menu')
 	const burgerMenuClose = document.querySelectorAll('.js-burger-menu-close')
@@ -30,6 +38,8 @@ window.addEventListener('load', function(){
 			body.classList.remove('open-menu')
 		})
 	})
+	// END BURGER MENU OPEN //
+
 	
 
 })
