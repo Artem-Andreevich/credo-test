@@ -822,13 +822,15 @@ footer {
 
 .popular-items {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 48px;
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  grid-template-areas: "T L" "S S";
+  gap: 48px 0px;
   margin-top: var(--page-gap);
   padding: 0 80px;
 }
 .popular-items__title {
+  grid-area: T;
   text-transform: uppercase;
 }
 .popular-items__title span:first-child {
@@ -837,10 +839,13 @@ footer {
 .popular-items__title span:first-child::after {
   content: " ";
 }
+.popular-items__slider {
+  grid-area: S;
+  margin-right: -80px;
+}
 .popular-items .goto-link {
-  position: absolute;
-  top: 20px;
-  right: 0;
+  grid-area: L;
+  justify-content: end;
 }
 
 .catalog-item {

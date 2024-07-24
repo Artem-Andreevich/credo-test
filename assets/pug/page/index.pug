@@ -27,6 +27,9 @@ block content
             h2.page__subtitle.popular-items__title 
                 span Тренды
                 span сезона
+            a.goto-link(href="#")
+                span Перейти в каталог
+                +svg('goto-icon', 16)(class="icon")
             .popular-items__slider
                 .swiper
                     .swiper-wrapper 
@@ -47,7 +50,6 @@ block content
                                         span 1 500 ₽
                                         s 3 000 ₽
                                 a.catalog-item__link(href="#")
-
                         .swiper-slide
                             .catalog-item.catalog-item--orange
                                 .catalog-item__actions
@@ -99,7 +101,6 @@ block content
                                         span 1 500 ₽
                                         s 3 000 ₽
                                 a.catalog-item__link(href="#")
-
                         .swiper-slide
                             .catalog-item.catalog-item--orange
                                 .catalog-item__actions
@@ -134,7 +135,3 @@ block content
                                         span 1 500 ₽
                                         s 3 000 ₽
                                 a.catalog-item__link(href="#")
-
-            a.goto-link(href="#")
-                span Перейти в каталог
-                +svg('goto-icon', 16)(class="icon")

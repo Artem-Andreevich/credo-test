@@ -1,11 +1,11 @@
 window.addEventListener('load', function(){
 
 	const swiper = new Swiper('.swiper', {
-		loop: false,
-		slidesPerView: 4.2,
-		spaceBetween: 30,
+		loop: true,
+		slidesPerView: 4.3,
+		spaceBetween: 32,
 		grabCursor: true,
-		freeMode: true,
+		loopPreventsSlide: false,
 	  });
 	
 })

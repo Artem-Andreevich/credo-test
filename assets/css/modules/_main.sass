@@ -514,23 +514,26 @@
 
 .popular-items
 	position: relative
-	display: flex
-	flex-direction: column
-	gap: 48px
+	display: grid
+	grid-template-columns: 1fr 200px
+	grid-template-areas: "T L""S S"
+	gap: 48px 0px
 	margin-top: var(--page-gap)
 	padding: 0 80px
 	&__title
+		grid-area: T
 		text-transform: uppercase
 		span:first-child
 			color: var(--main-color)
 			&::after
 				content: '\00a0'
 	&__slider
-		// padding-left: 80px
+		grid-area: S
+		margin-right: -80px
 	.goto-link
-		position: absolute
-		top: 20px
-		right: 0
+		grid-area: L
+		justify-content: end
+
 
 .catalog-item
 	position: relative
