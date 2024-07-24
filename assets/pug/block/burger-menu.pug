@@ -1,0 +1,26 @@
+include ../layout/mixins.pug
+.burger-menu.js-burger-menu
+    .burger-menu__content
+        header.header.header--border-none
+            .header__row
+                a.header__logo.js-burger-menu-close(href="#")
+                    +svg('logo', 80, 14)(class="icon-fill") 
+                button.burger-menu__close.js-burger-menu-close
+                    +svg('close', 16)(class='icon-fill')
+        .burger-menu__body 
+            .burger-menu__nav 
+                .page__heading Продукция
+                ul.burger-menu__nav__list
+                    li: a.burger-menu__nav__link(href="#") Пигменты
+                    li: a.burger-menu__nav__link(href="#") Пигменты	
+                    li: a.burger-menu__nav__link(href="#") Аппараты
+                    li: a.burger-menu__nav__link(href="#") Иглы
+                    li: a.burger-menu__nav__link(href="#") Расходные материалы
+            .burger-menu__nav 
+                .page__heading Компания
+                ul.burger-menu__nav__list
+                    li: a.burger-menu__nav__link(href="#") Блог
+                    li: a.burger-menu__nav__link(href="#") Обучение
+                    li: a.burger-menu__nav__link(href="#") Стать представителем
+                    li: a.burger-menu__nav__link(href="#") Контакты
+                    li: a.burger-menu__nav__link(href="#") Политика конфиденциальности

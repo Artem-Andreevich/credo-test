@@ -4,6 +4,7 @@
 @import "_keyframes.sass"
 @import "_reset.sass"
 
+
 .wrapper 
 	-webkit-box-orient: vertical
 	-webkit-box-direction: normal
@@ -13,6 +14,27 @@
 	min-height: 100%
 	margin: 0 auto
 	background: #fff
+
+.backdrop 
+	position: fixed
+	top: 0
+	left: 0
+	z-index: 50
+	width: 100vw
+	height: 100vh
+	background-color: rgb(0 0 0 / 30%)
+	opacity: 0
+	visibility: hidden
+	pointer-events: none
+	transition: all .2s ease-out
+	&.active 
+		opacity: 1
+		visibility: visible
+
+.open-menu 
+	overflow: hidden !important 
+	padding-right: 17px
+
 
 
 .text 
@@ -79,126 +101,6 @@
 		&:hover
 			color: var(--main-color)
 
-
-
-
-.offcanvas 
-	padding: 40px 20px 80px 20px
-	&__content 
-		overflow: auto
-		padding: 0 15px
-	&__close 
-		position: absolute
-		top: 0px
-		right: -40px
-		z-index: 1100
-		display: flex
-		align-items: center
-		justify-content: center
-		width: var(--size-40-30)
-		height: var(--size-40-30)
-		color: #fff
-		background: #000
-		transition: $trans
-		@media (hover : hover)  
-			&:hover  
-				background: var(--main-color-hover) 
-
-.dropdown-menu 
-	max-width: 85vw
-	padding: 0.5em
-	border: 1px solid var(--second-light-color)
-	border-radius: 10px
-	box-shadow: 0 0.5rem 1rem rgba(0,0,0,.15) !important
-
-.dropdown-item 
-	padding: 0.45rem 1rem
-	font-size: var(--fs-16-14)
-	white-space: normal
-	border-radius: 4px
-	&:hover 
-		color: #fff
-		background: var(--main-color-hover) 
-
-.dropdown-toggle 
-	width: fit-content
-	&.show
-		&::after
-			transform: rotate(180deg) 
-	&::after 
-		content: ''
-		border: none
-		width: 6px
-		height: 4px
-		margin-left: 7px
-		vertical-align: middle
-		background: url(../images/dropdown.svg)
-		background-repeat: no-repeat
-		transition: $trans	
-
-.backdrop 
-	position: fixed
-	top: 0
-	left: 0
-	z-index: 50
-	width: 100vw
-	height: 100vh
-	background-color: rgb(0 0 0 / 30%)
-	opacity: 0
-	visibility: hidden
-	// pointer-events: none
-	transition: all .2s ease-out
-	&.active 
-		opacity: 1
-		visibility: visible
-
-.open-menu 
-	overflow: hidden!important 
-	padding-right: 17px
-
-
-
-
-.form 
-	&__field
-		display: flex
-		flex-direction: column
-		gap: 14px
-		max-width: 544px
-
-	input 
-		width: 100%
-		height: 56px
-		padding: 16px
-		border: none
-		outline: none
-		font-family: "Roboto", sans-serif
-		font-size: 16px
-		font-weight: 400
-		border-radius: var(--border-raduis-4)
-		background: var(--second-light-color)
-		transition: $trans
-		&::placeholder
-			color: #A1A2A6
-			font-size: 16px
-			font-family: "Roboto", sans-serif
-			font-weight: 400
-			transition: $trans
-		@media (hover : hover) 
-			&:hover
-				&::placeholder
-					color: #4B4E56
-		&:focus-within
-			border: 1px solid #000
-			&::placeholder
-				color: var(--accent-color)
-			
-	label
-		font-size:  16px
-		font-weight: 400
-		opacity: 40%
-	
-	
 .action-link
 	transition: $trans
 	&__icon
@@ -242,6 +144,102 @@
 				animation: down 300ms alternate forwards
 
 
+
+.form 
+	&__field
+		display: flex
+		flex-direction: column
+		gap: 14px
+		max-width: 544px
+
+	input 
+		width: 100%
+		height: 56px
+		padding: 16px
+		font-family: "Roboto", sans-serif
+		font-size: 16px
+		font-weight: 400
+		outline: none
+		border: 1px solid transparent
+		border-radius: var(--border-raduis-4)
+		background: var(--second-light-color)
+		transition: $trans
+		&::placeholder
+			color: #A1A2A6
+			font-size: 16px
+			font-family: "Roboto", sans-serif
+			font-weight: 400
+			transition: $trans
+		@media (hover : hover) 
+			&:hover
+				&::placeholder
+					color: #4B4E56
+		&:focus-within
+			border: 1px solid #000
+			&::placeholder
+				color: var(--accent-color)
+			
+	label
+		font-size:  16px
+		font-weight: 400
+		opacity: 40%
+	
+.burger-menu
+	position: fixed
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	width: 100vw
+	height: 100vh
+	background: #fff
+	z-index: 10
+	display: none
+	&.open
+		display: block
+	&__content
+		display: flex
+		flex-direction: column
+		max-width: 1280px
+		width: 100%
+		height: 100%
+		margin: 0 auto
+	&__body
+		display: grid
+		grid-template-columns: repeat(2, 1fr)
+		align-items: center
+		gap: 32px
+		width: 100%
+		height: 100%
+		padding: 32px var(--main-padding)
+		overflow-y: auto 
+	&__nav 
+		display: flex
+		flex-direction: column
+		gap: 24px
+
+		&__list
+			display: flex
+			flex-direction: column
+			gap: 16px
+		&__link
+			font-size: 16px
+			font-weight: 400
+			line-height: 150%
+			opacity: 80%
+			transition: $trans
+			@media (hover : hover )
+				&:hover
+					opacity: 1
+					color: var(--main-color)
+	&__close
+		display: flex
+		align-items: center
+		justify-content: center
+		width: 32px
+		height: 32px
+		color: var(--accent-color)
+
 	 
 .header
 	width: 100%
@@ -250,6 +248,7 @@
 		display: flex
 		align-items: center
 		justify-content: space-between
+		flex-shrink: 0
 		gap: 20px
 		padding: 16px 32px
 		height: var(--header-height)
@@ -277,11 +276,12 @@
 			fill: none
 	&__user-links
 		display: flex
+	&--border-none
+		border: none
 
 .footer 
 	margin-top: var(--page-gap) 
-	padding: 40px 0
-	background: #333
+	background: var(--accent-color)
 
 .page 
 
@@ -326,167 +326,6 @@
 		font-weight: 500
 		line-height: 100%
 
-	
-	&__checkbox 
-		position: relative
-		display: flex
-		align-items: center
-		cursor: pointer
-
-		&:hover 
-			svg rect
-				fill: var(--main-color-hover)
-			svg polyline
-				stroke: var(--main-color-hover)
-		
-		input 
-			position: absolute
-			left: 10px
-			bottom: 0
-			width: 1px !important
-			height: 1px !important
-			border: none !important
-			box-shadow: none !important
-
-			&:checked 
-				~ svg rect 
-					fill: var(--main-color)
-				~ svg polyline 
-					stroke: #fff
-			
-		svg 
-			margin-right: 10px 
-			flex-shrink: 0
-		svg rect 
-			fill: var(--second-light-color)
-		svg polyline 
-			stroke: var(--second-light-color)
-
-	&__radio 
-		display: flex
-		align-items: center
-		cursor: pointer
-		&:hover 
-			svg rect:last-child 
-				fill: var(--main-color)
-		
-		input 
-			width: 1px
-			&:checked 
-				~ svg rect:first-child 
-					fill: var(--main-color)
-		svg  
-			margin-right: 10px 
-		svg rect  
-			fill: var(--second-light-color) 
-	
-	&__content 
-		display: flex
-		flex-direction: column
-		gap: 20px
-
-		img 
-			width: 100%
-			max-height: 600px
-			border-radius: 10px
-		
-		h1 
-			font-size: var(--fs-32-24)
-			font-family: $bold
-			color: #ccc
-		
-		h2 
-			font-size: var(--fs-24-lg-16)
-			font-family: $bold
-		
-		h3 
-			font-size: var(--fs-18-14)
-			font-family: $bold
-		
-		a 
-			display: block
-			width: fit-content
-		
-		q  
-			font-size: var(--fs-18-16)
-		
-		p 
-			font-size: var(--fs-16-14)
-		
-		span 
-			font-size: 12px 
-			color: var(--accent-color)
-		
-		ul 
-			display: flex
-			flex-direction: column
-			gap: 15px
-			padding-left: 15px
-			list-style: none
-
-			li 
-				padding-left: 15px
-				&::marker 
-					content: '—'
-					color: var(--main-color)
-
-		ol 
-			display: flex
-			flex-direction: column
-			gap: 15px
-			list-style-type: none
-			counter-reset: num
-
-			li 
-				counter-increment: num
-				display: flex
-				gap: 10px
-				&:before 
-					content: counter(num)
-					color: var(--main-color)
-				
-				&:nth-child(-n+9)::before 
-					content: "0" counter(num)
-		
-		dl 
-			div 
-				display: flex
-				justify-content: space-between
-				gap: 10px
-				padding: 15px 0
-				
-				font-size: var(--fs-14-12)
-				border-bottom: 1px solid var(--second-color)
-
-				dt 
-					font-family: $r
-				dd 
-					font-family: $bold 
-			
-		table 
-			display: block
-			overflow-x: auto
-
-			thead tr 
-				color: #fff
-				font-family: $bold
-				background: #000
-			
-			tbody tr
-				&:nth-child(even)  
-					background: var(--second-light-color) 
-				&:hover  
-					background: var(--accent-color) 
-					color: #fff
-			
-			td 
-				padding: 20px
-				font-size: var(--fs-16-sm-12)
-				font-weight: normal
-				&:first-child 
-					border-radius: 16px 0 0 16px
-				&:last-child 
-					border-radius: 0 16px 16px 0
 
 
 .user-profile
@@ -495,7 +334,6 @@
 		flex-direction: column
 		padding-top: 32px
 		border-bottom: 1px solid var(--border-color)
-
 	&__title
 		padding: var(--user-profile-padding)
 		border-bottom: 1px solid var(--border-color)
@@ -519,7 +357,7 @@
 	grid-template-areas: "T L""S S"
 	gap: 48px 0px
 	margin-top: var(--page-gap)
-	padding: 0 80px
+	padding: 0 var(--main-padding)
 	&__title
 		grid-area: T
 		text-transform: uppercase
@@ -529,11 +367,15 @@
 				content: '\00a0'
 	&__slider
 		grid-area: S
-		margin-right: -80px
+		margin-right: calc( -1 * var(--main-padding) )
+		.swiper-slide
+			width: 256px !important
+			&:last-child
+				margin-right: var(--main-padding)
+				
 	.goto-link
 		grid-area: L
 		justify-content: end
-
 
 .catalog-item
 	position: relative
@@ -557,6 +399,13 @@
 		border-top: 12px solid 
 		border-color: var(--second-color)
 	&__title, &__price
+		display: -webkit-box
+		-webkit-box-orient: vertical
+		-webkit-line-clamp: inherit 
+		-webkit-line-clamp: 1
+		text-overflow: ellipsis
+		overflow: hidden
+
 		font-family: Times New Roman
 		font-size: 18px
 		font-style: italic
@@ -564,6 +413,13 @@
 		line-height: 100%
 		transition: $trans
 	&__descr
+		display: -webkit-box
+		-webkit-box-orient: vertical
+		-webkit-line-clamp: inherit 
+		-webkit-line-clamp: 1
+		text-overflow: ellipsis
+		overflow: hidden
+
 		font-size: 14px
 		font-weight: 400
 		line-height: 125%
@@ -615,7 +471,6 @@
 		width: 100%
 		height: 100%
 		z-index: 1
-		pointer-events: none
 
 	@media (hover : hover)
 		&:hover 
@@ -633,5 +488,3 @@
 	&--red &
 		&__body
 			border-color:#C07474
-
-
